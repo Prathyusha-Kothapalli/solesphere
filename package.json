@@ -1,0 +1,33 @@
+{
+  "name": "solesphere",
+  "version": "1.0.0",
+  "description": "SoleSphere - Enterprise Grade Premium Sneaker E-commerce Platform",
+  "main": "src/server.js",
+  "scripts": {
+    "start": "node src/server.js",
+    "dev": "node src/server.js",
+    "seed": "node src/db/seed.js",
+    "test": "jest --runInBand --detectOpenHandles --forceExit"
+  },
+  "keywords": [
+    "sneakers",
+    "ecommerce",
+    "solesphere",
+    "express",
+    "sqlite",
+    "portfolio"
+  ],
+  "author": "SoleSphere Engineering",
+  "license": "UNLICENSED",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "cors": "^2.8.5",
+    "express": "^4.19.2",
+    "jsonwebtoken": "^9.0.2",
+    "sqlite3": "^5.1.7"
+  },
+  "devDependencies": {
+    "jest": "^29.7.0",
+    "supertest": "^7.0.0"
+  }
+}
