@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="SoleSphere - Premium Sneaker E-Commerce Platform featuring 100+ grail sneakers, rare drops, and luxury footwear.">
+  <title>SoleSphere — Premium Sneaker E-Commerce Platform</title>
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;600;700;800;900&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+  
+  <!-- Styles -->
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="stylesheet" href="/css/components.css">
+  <link rel="stylesheet" href="/css/admin.css">
+</head>
+<body class="dark-theme">
+  <!-- Toast Notification System -->
+  <div id="toast-container" aria-live="polite" aria-atomic="true"></div>
+
+  <!-- Header Navigation -->
+  <header class="navbar" id="main-header">
+    <div class="nav-container">
+      <a href="#" class="nav-logo" id="logo-btn" aria-label="SoleSphere Home">
+        <span class="logo-icon">👟</span>
+        <span class="logo-text">SOLE<span class="highlight">SPHERE</span></span>
+      </a>
+
+      <nav class="nav-menu" id="nav-menu">
+        <a href="#home" class="nav-link active" data-page="home">Home</a>
+        <a href="#catalog" class="nav-link" data-page="catalog">Catalog</a>
+        <a href="#brands" class="nav-link" data-page="brands">Brands</a>
+        <a href="#new-releases" class="nav-link" data-page="new-releases">New Releases</a>
+        <a href="#admin" class="nav-link admin-only" id="admin-nav-link" style="display: none;" data-page="admin">⚡ Admin Dashboard</a>
+      </nav>
+
+      <div class="nav-actions">
+        <button class="nav-icon-btn" id="search-toggle-btn" aria-label="Search Products">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        </button>
+
+        <button class="nav-icon-btn" id="wishlist-btn" aria-label="Wishlist">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+          <span class="badge" id="wishlist-badge">0</span>
+        </button>
+
+        <button class="nav-icon-btn" id="cart-drawer-btn" aria-label="Shopping Cart">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+          <span class="badge badge-accent" id="cart-badge">0</span>
+        </button>
+
+        <div class="user-auth-wrap" id="auth-widget">
+          <button class="btn btn-outline btn-sm" id="open-login-btn">Sign In</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Dropdown Search Bar -->
+    <div class="search-dropdown-bar hidden" id="search-bar">
+      <div class="search-input-wrap">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        <input type="text" id="global-search-input" placeholder="Search 100+ sneakers by brand, model, colorway..." aria-label="Global Search">
+        <button class="clear-search-btn" id="clear-search-btn">&times;</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main View Container -->
+  <main id="app-view">
+    <!-- Dynamic views get injected here by JS router -->
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-container">
+      <div class="footer-brand">
+        <a href="#" class="nav-logo">
+          <span class="logo-icon">👟</span>
+          <span class="logo-text">SOLE<span class="highlight">SPHERE</span></span>
+        </a>
+        <p class="footer-desc">The ultimate destination for luxury sneaker enthusiasts, authentic grails, performance footwear, and global street culture.</p>
+      </div>
+
+      <div class="footer-column">
+        <h4>Explore</h4>
+        <ul>
+          <li><a href="#catalog" data-page="catalog">Featured Grails</a></li>
+          <li><a href="#new-releases" data-page="new-releases">New Drops</a></li>
+          <li><a href="#brands" data-page="brands">Top Brands</a></li>
+          <li><a href="#catalog" data-page="catalog">Limited Editions</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-column">
+        <h4>Account & Help</h4>
+        <ul>
+          <li><a href="#" id="footer-profile-link">User Profile</a></li>
+          <li><a href="#" id="footer-orders-link">Order Tracking</a></li>
+          <li><a href="#" id="footer-wishlist-link">My Wishlist</a></li>
+          <li><a href="#" id="demo-creds-btn">Demo Login Credentials</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-column">
+        <h4>Demo Accounts</h4>
+        <p class="demo-info"><strong>Admin:</strong> admin@solesphere.com</p>
+        <p class="demo-info"><strong>Customer:</strong> demo@solesphere.com</p>
+        <p class="demo-info"><strong>Password:</strong> Demo@123</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 SoleSphere Inc. All rights reserved. Built with Node.js, SQLite & Vanilla CSS.</p>
+    </div>
+  </footer>
+
+  <!-- Slide-over Shopping Cart Drawer -->
+  <div class="cart-drawer-backdrop hidden" id="cart-drawer-backdrop"></div>
+  <aside class="cart-drawer hidden" id="cart-drawer" aria-label="Cart Drawer">
+    <div class="drawer-header">
+      <h3>Shopping Cart (<span id="cart-count-header">0</span>)</h3>
+      <button class="close-drawer-btn" id="close-cart-btn">&times;</button>
+    </div>
+    <div class="drawer-body" id="cart-items-container">
+      <!-- Injected cart items -->
+    </div>
+    <div class="drawer-footer" id="cart-summary-footer">
+      <div class="coupon-section">
+        <input type="text" id="cart-coupon-input" placeholder="Promo code (e.g. SOLE20)" aria-label="Coupon code">
+        <button class="btn btn-sm btn-secondary" id="apply-coupon-btn">Apply</button>
+      </div>
+      <div id="coupon-applied-msg" class="coupon-tag hidden"></div>
+      
+      <div class="summary-line">
+        <span>Subtotal</span>
+        <span id="cart-subtotal-val">$0.00</span>
+      </div>
+      <div class="summary-line text-success" id="discount-row" style="display: none;">
+        <span>Discount</span>
+        <span id="cart-discount-val">-$0.00</span>
+      </div>
+      <div class="summary-line">
+        <span>Shipping</span>
+        <span id="cart-shipping-val">Calculated at checkout</span>
+      </div>
+      <div class="summary-line total-line">
+        <span>Total</span>
+        <span id="cart-total-val">$0.00</span>
+      </div>
+      <button class="btn btn-primary btn-block btn-lg" id="proceed-checkout-btn">Proceed to Checkout</button>
+    </div>
+  </aside>
+
+  <!-- Product Quick Detail Modal -->
+  <div class="modal-backdrop hidden" id="product-modal-backdrop">
+    <div class="modal modal-lg" id="product-modal">
+      <button class="modal-close-btn" id="close-product-modal">&times;</button>
+      <div class="modal-body product-detail-grid" id="product-detail-content">
+        <!-- Injected product details -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Auth Modal (Login / Register) -->
+  <div class="modal-backdrop hidden" id="auth-modal-backdrop">
+    <div class="modal modal-sm" id="auth-modal">
+      <button class="modal-close-btn" id="close-auth-modal">&times;</button>
+      <div class="auth-tabs">
+        <button class="auth-tab-btn active" id="tab-login">Sign In</button>
+        <button class="auth-tab-btn" id="tab-register">Create Account</button>
+      </div>
+      
+      <!-- Login Form -->
+      <form id="login-form" class="auth-form">
+        <div class="form-group">
+          <label for="login-email">Email Address</label>
+          <input type="email" id="login-email" required value="demo@solesphere.com">
+        </div>
+        <div class="form-group">
+          <label for="login-password">Password</label>
+          <input type="password" id="login-password" required value="Demo@123">
+        </div>
+        <div class="quick-fill-wrap">
+          <button type="button" class="btn btn-xs btn-outline" id="fill-customer-btn">Fill Customer Demo</button>
+          <button type="button" class="btn btn-xs btn-outline" id="fill-admin-btn">Fill Admin Demo</button>
+        </div>
+        <button type="submit" class="btn btn-primary btn-block">Sign In</button>
+      </form>
+
+      <!-- Register Form -->
+      <form id="register-form" class="auth-form hidden">
+        <div class="form-group">
+          <label for="reg-name">Full Name</label>
+          <input type="text" id="reg-name" required placeholder="Alex Rivera">
+        </div>
+        <div class="form-group">
+          <label for="reg-email">Email Address</label>
+          <input type="email" id="reg-email" required placeholder="alex@example.com">
+        </div>
+        <div class="form-group">
+          <label for="reg-password">Password (min 6 chars)</label>
+          <input type="password" id="reg-password" required placeholder="••••••••">
+        </div>
+        <button type="submit" class="btn btn-primary btn-block">Create Account</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Checkout Modal -->
+  <div class="modal-backdrop hidden" id="checkout-modal-backdrop">
+    <div class="modal modal-md" id="checkout-modal">
+      <button class="modal-close-btn" id="close-checkout-modal">&times;</button>
+      <div class="modal-header">
+        <h2>Secure Checkout</h2>
+      </div>
+      <form id="checkout-form" class="checkout-form">
+        <div class="form-row">
+          <div class="form-group col-12">
+            <label for="checkout-name">Full Name</label>
+            <input type="text" id="checkout-name" required placeholder="Alex Rivera">
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="checkout-address">Shipping Address</label>
+          <input type="text" id="checkout-address" required placeholder="742 Evergreen Terrace">
+        </div>
+        <div class="form-row">
+          <div class="form-group col-6">
+            <label for="checkout-city">City</label>
+            <input type="text" id="checkout-city" required placeholder="Los Angeles">
+          </div>
+          <div class="form-group col-6">
+            <label for="checkout-postal">Postal Code</label>
+            <input type="text" id="checkout-postal" required placeholder="90210">
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="checkout-payment">Payment Method</label>
+          <select id="checkout-payment">
+            <option value="Credit Card">Credit Card (Demo Instant Approval)</option>
+            <option value="Apple Pay">Apple Pay</option>
+            <option value="PayPal">PayPal Express</option>
+            <option value="Crypto">Crypto (USDC / SOL)</option>
+          </select>
+        </div>
+
+        <div class="checkout-order-summary-box" id="checkout-summary-box">
+          <!-- Summary items -->
+        </div>
+
+        <button type="submit" class="btn btn-primary btn-block btn-lg" id="place-order-btn">Complete Purchase & Place Order</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="/js/api.js"></script>
+  <script src="/js/app.js"></script>
+</body>
+</html>
