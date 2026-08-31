@@ -1,0 +1,2 @@
+# SoleSphere Python 3.10+ Analytics Tooling Dependencies
+# Standard Library sqlite3, csv, json, argparse are used for zero-dependency portability
